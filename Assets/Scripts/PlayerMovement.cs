@@ -15,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        rb2d.velocity = Vector2.zero;
+    }
+
     public void Idle()
     {
         anim.SetBool("Idle", true);
@@ -34,5 +39,6 @@ public class PlayerMovement : MonoBehaviour
                                         GameController.controller.maxPosition - 10)
                             );
         rb2d.MovePosition(clampedPosition);
+        
     }
 }

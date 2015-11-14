@@ -123,7 +123,7 @@ public class GamepadController : MonoBehaviour
                 rumble.timer = timer;
                 rumble.power = power;
                 rumble.fadeTime = fadeTime;
-                p1rumbleEvents.Add(rumble);
+                p2rumbleEvents.Add(rumble);
                 break;
             default: break;
         }

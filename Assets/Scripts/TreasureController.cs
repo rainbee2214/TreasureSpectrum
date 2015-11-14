@@ -13,6 +13,7 @@ public class TreasureController : MonoBehaviour
     public Sprite redGem, blueGem, greenGem, yellowGem;
 
     public GameObject treasurePrefab;
+    public GameObject rockPrefab;
 
     int size = 5;
 
@@ -20,6 +21,8 @@ public class TreasureController : MonoBehaviour
     {
         treasures = new List<Treasure>();
         treasureLocations = new List<Vector2>();
+        rocks = new List<Rock>();
+        rockLocations = new List<Vector2>();
         Debug.Log("....");
         for (int i = 0; i < GameController.controller.CurrentLevelTreasureCount; i++)
         {
@@ -39,24 +42,46 @@ public class TreasureController : MonoBehaviour
             bool keepGoing = false;
             do
             {
-                newPosition.Set(Random.Range(0, size), Random.Range(0, size));
+                newPosition.Set(Random.Range(GameController.controller.minPosition + 10, GameController.controller.maxPosition - 10), Random.Range(GameController.controller.minPosition + 10, GameController.controller.maxPosition - 10));
                 keepGoing = IsLocationInList(newPosition);
             } while (keepGoing);
             treasure.transform.position = newPosition;
             treasureLocations.Add(newPosition);
             treasures.Add(treasure);
         }
+
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject g = Instantiate(rockPrefab);
+            g.transform.SetParent(transform);
+            Rock rock = g.GetComponent<Rock>();
+            Vector2 newPosition = Vector2.zero;
+            bool keepGoing = false;
+            do
+            {
+                newPosition.Set(Random.Range(GameController.controller.minPosition, GameController.controller.maxPosition), Random.Range(GameController.controller.minPosition, GameController.controller.maxPosition));
+                keepGoing = IsLocationInList(newPosition);
+            } while (keepGoing);
+            rock.transform.position = newPosition;
+            rockLocations.Add(newPosition);
+            rocks.Add(rock);
+
+        }
     }
 
-    void Update()
-    {
+    //void Update()
+    //{
 
-    }
+    //}
 
     bool IsLocationInList(Vector2 location)
     {
         if (treasureLocations.Count == 0) return false;
         foreach(Vector2 l in treasureLocations)
+        {
+            if (l.x == location.x && l.y == location.y) return true;
+        }
+        foreach(Vector2 l in rockLocations)
         {
             if (l.x == location.x && l.y == location.y) return true;
         }
