@@ -24,7 +24,6 @@ public class Flashlight : MonoBehaviour
     {
         if (currentColor != FlashlightColor.White)
         {
-            Debug.Log("Colors are on!");
             if (currentIndex == XInputDotNetPure.PlayerIndex.One)
             {
                 GameController.controller.Player1BatteryLevel = -deadBatteryIncrement;

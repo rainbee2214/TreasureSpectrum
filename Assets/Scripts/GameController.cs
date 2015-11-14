@@ -87,18 +87,24 @@ public class GameController : MonoBehaviour
     {
         currentLevelTreasureCount = startingTreasureCount;
         //Start a new round 
-        for (int roundNo = 1; roundNo < startingNumberOfRounds; roundNo++)
+        //for (int roundNo = 1; roundNo <= startingNumberOfRounds; roundNo++)
+        //{
+        //Generate treasure and place it (using treasure controller)
+        //Place players in starting locations
+        //start timer
+        timer = startingTime;
+        player1RoundWin = false;
+        player2RoundWin = false;
+        while ((timer > 0) && !player1RoundWin && !player2RoundWin)
         {
-            //Generate treasure and place it (using treasure controller)
-            //Place players in starting locations
-            //start timer
-            while ((timer > 0) && !player1RoundWin && !player2RoundWin)
-            {
-                timer--;
-                yield return new WaitForSeconds(1f);
-            }
-            yield return new WaitForSeconds(newRoundDelay);
+            timer--;
+            yield return new WaitForSeconds(1f);
         }
+        yield return new WaitForSeconds(newRoundDelay);
+        Debug.Log("Round over!");
+
+        GameController.controller.gameOver = true;
+        //}
         //-generate treasure, start time limit
         //if treasure if collected enough or time is over ->start next round
         yield return null;

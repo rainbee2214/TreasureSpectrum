@@ -1,16 +1,16 @@
 fileFormatVersion: 2
 guid: b2599ab158539fa4998f9a20f57df1fe
-timeCreated: 1447531535
+timeCreated: 1447532891
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Gems 1_0
+    21300000: BlueGem
     21300002: Gems 1_1
-    21300004: Gems 1_2
+    21300004: GreenGem
     21300006: Gems 1_3
-    21300008: Gems 1_4
+    21300008: RedGem
     21300010: Gems 1_5
-    21300012: Gems 1_6
+    21300012: YellowGem
     21300014: Gems 1_7
   serializedVersion: 2
   mipmaps:
@@ -57,7 +57,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Gems 1_0
+    - name: BlueGem
       rect:
         serializedVersion: 2
         x: 10
@@ -65,7 +65,7 @@ TextureImporter:
         width: 53
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Gems 1_1
       rect:
@@ -75,9 +75,9 @@ TextureImporter:
         width: 66
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Gems 1_2
+    - name: GreenGem
       rect:
         serializedVersion: 2
         x: 158
@@ -85,7 +85,7 @@ TextureImporter:
         width: 52
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Gems 1_3
       rect:
@@ -95,9 +95,9 @@ TextureImporter:
         width: 66
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Gems 1_4
+    - name: RedGem
       rect:
         serializedVersion: 2
         x: 10
@@ -105,7 +105,7 @@ TextureImporter:
         width: 53
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Gems 1_5
       rect:
@@ -115,17 +115,17 @@ TextureImporter:
         width: 67
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Gems 1_6
+    - name: YellowGem
       rect:
         serializedVersion: 2
-        x: 158
-        y: 19
+        x: 159
+        y: 20
         width: 52
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Gems 1_7
       rect:
@@ -135,7 +135,7 @@ TextureImporter:
         width: 66
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
