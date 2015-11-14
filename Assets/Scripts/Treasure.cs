@@ -36,6 +36,15 @@ public class Treasure : MonoBehaviour
             if (!visible) return;
             Debug.Log("Treasure collected!");
             gameObject.SetActive(false);
+            if (other.GetComponent<Player>().currentIndex == XInputDotNetPure.PlayerIndex.One)
+            {
+                GameController.controller.Player1TreasureCount = 1;
+            }
+            else
+            {
+                GameController.controller.Player2TreasureCount = 1;
+            }
+            GameController.controller.CurrentLevelTreasureCount = -1;
         }
     }
 

@@ -6,7 +6,19 @@ public class GameController : MonoBehaviour
     public static GameController controller;
 
     #region Properties
+    private float player1BatteryLevel = 1, player2BatteryLevel = 1;
+    public float Player1BatteryLevel
+    {
+        get { return player1BatteryLevel; }
+        set { player1BatteryLevel += value; }
+    }
+    public float Player2BatteryLevel
+    {
+        get { return player2BatteryLevel; }
+        set { player2BatteryLevel += value; }
+    }
     private int player1TreasureCount, player2TreasureCount, currentLevelTreasureCount, currentRound;
+
     public int Player1TreasureCount
     {
         get { return player1TreasureCount; }
@@ -21,7 +33,7 @@ public class GameController : MonoBehaviour
     public int CurrentLevelTreasureCount
     {
         get { return currentLevelTreasureCount; }
-        set { currentLevelTreasureCount = value; }
+        set { currentLevelTreasureCount += value; }
     }
     public int CurrentRound
     {
@@ -29,10 +41,15 @@ public class GameController : MonoBehaviour
         set { currentRound = value; }
     }
     #endregion
+    public bool gameOver;
+    public string winningPlayer;
 
     public int startingTreasureCount = 10, startingNumberOfRounds = 2;
 
+    [HideInInspector]
     public float timer;
+
+    float startingTime = 30f;
 
     float newRoundDelay = 3f;
     bool inRound;
@@ -50,6 +67,9 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        CurrentLevelTreasureCount = startingTreasureCount;
+        timer = startingTime;
+        StartCoroutine(StartRounds());
     }
 
 
@@ -66,6 +86,7 @@ public class GameController : MonoBehaviour
     }
     IEnumerator StartRounds()
     {
+        CurrentLevelTreasureCount = startingTreasureCount;
         //Start a new round 
         for (int roundNo = 1; roundNo < startingNumberOfRounds; roundNo++)
         {

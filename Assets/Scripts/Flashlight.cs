@@ -10,6 +10,7 @@ public class Flashlight : MonoBehaviour
     public SpriteRenderer flashlightRing;
     public CircleCollider2D flashlightCollider;
 
+    float deadBatteryIncrement = 0.001f;
     [HideInInspector]
     public XInputDotNetPure.PlayerIndex currentIndex;
 
@@ -21,6 +22,35 @@ public class Flashlight : MonoBehaviour
     }
     void Update()
     {
+        if (currentColor != FlashlightColor.White)
+        {
+            Debug.Log("Colors are on!");
+            if (currentIndex == XInputDotNetPure.PlayerIndex.One)
+            {
+                GameController.controller.Player1BatteryLevel = -deadBatteryIncrement;
+            }
+            else
+            {
+                GameController.controller.Player2BatteryLevel = -deadBatteryIncrement;
+            }
+        }
+
+        if (currentIndex == XInputDotNetPure.PlayerIndex.One)
+        {
+            if (GameController.controller.Player1BatteryLevel <= deadBatteryIncrement)
+            {
+                GoToColor(FlashlightColor.White);
+                return;
+            }
+        }
+        if (currentIndex == XInputDotNetPure.PlayerIndex.Two)
+        {
+            if (GameController.controller.Player2BatteryLevel <= deadBatteryIncrement)
+            {
+                GoToColor(FlashlightColor.White);
+                return;
+            }
+        }
         if (GamepadController.controller.GetButtonDown(currentIndex, GamePadButton.R_Bumper) ||
             GamepadController.controller.GetButtonDown(currentIndex, GamePadButton.L_Bumper))
         {
