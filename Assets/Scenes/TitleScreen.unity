@@ -236,8 +236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3670d9e25c84247a8162801c693e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStartDelay: 1
   player1ReadyText: {fileID: 852525947}
   player2ReadyText: {fileID: 1118057480}
+  startingComments: []
 --- !u!4 &206242341
 Transform:
   m_ObjectHideFlags: 0
@@ -441,8 +443,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: press A to join
 --- !u!222 &852525948
@@ -507,8 +509,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: press A to join
 --- !u!222 &1118057481
