@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     PlayerMovement movement;
     Vector2 position;
-    XInputDotNetPure.PlayerIndex currentIndex;
+    [HideInInspector]
+    public XInputDotNetPure.PlayerIndex currentIndex;
 
     Flashlight flashlight;
 

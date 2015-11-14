@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
     
     void Awake()
     {
-        if (controller = null)
+        if (controller == null)
         {
             DontDestroyOnLoad(gameObject);
             controller = this;
@@ -33,22 +33,22 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        //if (GameController.controller.gameOver)
-        //{
-            //timeLeft.gameObject.SetActive(false);
-            //gemsLeft.gameObject.SetActive(false);
-            //gameOver.text = "Player " + GameController.controller.winner + " wins!";
-            //gameOver.gameObject.SetActive(true);
-            //playAgain.gameObject.SetActive(true);
-            //playAgainButton.gameObject.SetActive(true);
-        //}
-        //else 
-        //{
+        if (GameController.controller.gameOver)
+        {
+            timeLeft.gameObject.SetActive(false);
+            gemsLeft.gameObject.SetActive(false);
+            gameOver.text = "Player " + GameController.controller.winningPlayer + " wins!";
+            gameOver.gameObject.SetActive(true);
+            playAgain.gameObject.SetActive(true);
+            playAgainButton.gameObject.SetActive(true);
+        }
+        else
+        {
             UpdateTime();
             UpdateGemsLeft();
             UpdateScore();
             UpdateBattery();
-        //}
+        }
     }
 
     public void Reset()
@@ -66,23 +66,23 @@ public class UIController : MonoBehaviour
 
     public void UpdateTime()
     {
-        //timeLeft.text = GameController.controller.TimeLeft;
+        timeLeft.text = GameController.controller.timer.ToString() + " seconds";
     }
 
     public void UpdateGemsLeft()
     {
-        //gemsLeft.text = GameController.controller.GemsLeft + " Left";
+        gemsLeft.text = GameController.controller.CurrentLevelTreasureCount + " Left";
     }
 
     public void UpdateScore()
     {
-        //p1Score.text = GameController.controller.p1Gems;
-        //p2Score.text = GameController.controller.p2Gems;
+        p1Score.text = GameController.controller.Player1TreasureCount.ToString();
+        p2Score.text = GameController.controller.Player2TreasureCount.ToString();
     }
 
     public void UpdateBattery()
     {
-        //p1Battery.value = GameController.controller.p1Battery;
-        //p2Battery.value = GameController.controller.p2Battery;
+        p1Battery.value = GameController.controller.Player1BatteryLevel;
+        p2Battery.value = GameController.controller.Player2BatteryLevel;
     }
 }
