@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+
 public class TitleLoader : MonoBehaviour
 {
 
@@ -12,6 +13,8 @@ public class TitleLoader : MonoBehaviour
     public Text player1ReadyText, player2ReadyText;
 
     public string[] startingComments;
+    public AudioClip readySound;
+    AudioSource audio;
 
     void Awake()
     {
@@ -22,6 +25,11 @@ public class TitleLoader : MonoBehaviour
             startingComments[1] = "Time to party!";
         }
     }
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     void Update()
     {
         //if (Input.GetButtonDown("Player1A") && !player1Ready)
@@ -30,6 +38,7 @@ public class TitleLoader : MonoBehaviour
             player1Ready = true;
             player1ReadyText.text = "Ready!";
             player1button.gameObject.SetActive(false);
+            audio.PlayOneShot(readySound);
         }
         //if (Input.GetButtonDown("Player2A") && !player2Ready)
         if (GamepadController.controller.GetButtonDown(XInputDotNetPure.PlayerIndex.Two, GamePadButton.A) && !player2Ready)
@@ -37,6 +46,7 @@ public class TitleLoader : MonoBehaviour
             player2Ready = true;
             player2ReadyText.text = "Ready!";
             player2button.gameObject.SetActive(false);
+            audio.PlayOneShot(readySound);
         }
         if (player1Ready && player2Ready)
         {
