@@ -7,6 +7,7 @@ public class TitleLoader : MonoBehaviour
 
     public float gameStartDelay = 1f;
     bool player1Ready, player2Ready;
+    public Image player1button, player2button;
 
     public Text player1ReadyText, player2ReadyText;
 
@@ -28,12 +29,14 @@ public class TitleLoader : MonoBehaviour
         {
             player1Ready = true;
             player1ReadyText.text = "Ready!";
+            player1button.gameObject.SetActive(false);
         }
         //if (Input.GetButtonDown("Player2A") && !player2Ready)
         if (GamepadController.controller.GetButtonDown(XInputDotNetPure.PlayerIndex.Two, GamePadButton.A) && !player2Ready)
         {
             player2Ready = true;
             player2ReadyText.text = "Ready!";
+            player2button.gameObject.SetActive(false);
         }
         if (player1Ready && player2Ready)
         {
