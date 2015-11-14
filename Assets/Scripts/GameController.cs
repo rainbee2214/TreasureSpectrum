@@ -95,6 +95,7 @@ public class GameController : MonoBehaviour
             player1TreasureCount = 0;
             player2TreasureCount = 0;
             timer = startingTime;
+            currentLevelTreasureCount = startingTreasureCount;
             UIController.controller.Reset();
             Application.LoadLevel("Level");
         }
