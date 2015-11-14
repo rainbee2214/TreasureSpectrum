@@ -52,7 +52,6 @@ public class Treasure : MonoBehaviour
     {
         if (other.tag == "Flashlight")
         {
-            Debug.Log("Flashlight is touching!");
             if (other.GetComponentInParent<Flashlight>().currentColor == currentColor)
             {
                 visible = true;
@@ -65,9 +64,12 @@ public class Treasure : MonoBehaviour
         if (other.tag == "Flashlight")
         {
                 visible = false;
-            //if (other.GetComponentInParent<Flashlight>().currentColor == currentColor)
-            //{
-            //}
         }
+    }
+
+    public void SetColor(FlashlightColor color, Sprite s)
+    {
+        currentColor = color;
+        sr.sprite = s;
     }
 }
