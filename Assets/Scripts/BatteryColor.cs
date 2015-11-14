@@ -7,7 +7,7 @@ public class BatteryColor : MonoBehaviour
     public Color red, yellow, green;
 	public void UpdateColor(float val)
     {
-        Debug.Log("val changed " + val);
+        //Debug.Log("val changed " + val);
         Color min, max;
         float lerp;
         if (val <= 0.5f)

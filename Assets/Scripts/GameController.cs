@@ -67,7 +67,6 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        CurrentLevelTreasureCount = startingTreasureCount;
         timer = startingTime;
         StartCoroutine(StartRounds());
     }
@@ -75,18 +74,18 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Player1TreasureCount >= startingTreasureCount / 5)
+        if (Player1TreasureCount >= startingTreasureCount / 2)
         {
             player1RoundWin = true;
         }
-        else if (Player2TreasureCount >= startingTreasureCount / 5)
+        else if (Player2TreasureCount >= startingTreasureCount / 2)
         {
             player2RoundWin = true;
         }
     }
     IEnumerator StartRounds()
     {
-        CurrentLevelTreasureCount = startingTreasureCount;
+        currentLevelTreasureCount = startingTreasureCount;
         //Start a new round 
         for (int roundNo = 1; roundNo < startingNumberOfRounds; roundNo++)
         {
