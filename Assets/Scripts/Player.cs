@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerMovement))]
+public class Player : MonoBehaviour
+{
+    PlayerMovement movement;
+    Vector2 position;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Awake()
+    {
+        movement = GetComponent<PlayerMovement>();
+    }
+
+    void Update()
+    {
+        position.x = Input.GetAxisRaw("Horizontal");
+        position.y = Input.GetAxisRaw("Vertical");
+    }
+
+    void FixedUpdate()
+    {
+        movement.Move(position);
+    }
 }
