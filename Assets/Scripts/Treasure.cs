@@ -39,11 +39,14 @@ public class Treasure : MonoBehaviour
             if (other.GetComponent<Player>().currentIndex == XInputDotNetPure.PlayerIndex.One)
             {
                 GameController.controller.Player1TreasureCount = 1;
+                GamepadController.controller.AddRumble(XInputDotNetPure.PlayerIndex.One, 0.5f, new Vector2(0.5f, 0.5f), 0.1f);
             }
             else
             {
                 GameController.controller.Player2TreasureCount = 1;
+                GamepadController.controller.AddRumble(XInputDotNetPure.PlayerIndex.Two, 0.5f, new Vector2(0.5f, 0.5f), 0.1f);
             }
+            AudioController.controller.CollectGem();
             GameController.controller.CurrentLevelTreasureCount = -1;
         }
     }

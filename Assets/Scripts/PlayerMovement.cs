@@ -25,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("X", position.x);
         anim.SetFloat("Y", position.y);
         anim.SetBool("Idle", false);
-        rb2d.MovePosition(rb2d.position + position*speed*Time.deltaTime);
+        Vector2 clampedPosition = rb2d.position + position * speed * Time.deltaTime;
+        clampedPosition.Set(Mathf.Clamp(clampedPosition.x,
+                                        GameController.controller.minPosition + 10,
+                                        GameController.controller.maxPosition - 10),
+                            Mathf.Clamp(clampedPosition.y,
+                                        GameController.controller.minPosition + 10,
+                                        GameController.controller.maxPosition - 10)
+                            );
+        rb2d.MovePosition(clampedPosition);
     }
 }

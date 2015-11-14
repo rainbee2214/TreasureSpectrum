@@ -5,7 +5,10 @@ public class GameController : MonoBehaviour
 {
     public static GameController controller;
 
-    #region Properties
+    #region 
+    public float minPosition = -22.5f, maxPosition = 67.5f;
+
+
     private float player1BatteryLevel = 1, player2BatteryLevel = 1;
     public float Player1BatteryLevel
     {

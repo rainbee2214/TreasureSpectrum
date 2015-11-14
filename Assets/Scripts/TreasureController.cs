@@ -7,6 +7,8 @@ public class TreasureController : MonoBehaviour
 {
     List<Treasure> treasures;
     List<Vector2> treasureLocations;
+    List<Rock> rocks;
+    List<Vector2> rockLocations;
 
     public Sprite redGem, blueGem, greenGem, yellowGem;
 
