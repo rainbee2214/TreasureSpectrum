@@ -37,7 +37,7 @@ public class UIController : MonoBehaviour
         {
             timeLeft.gameObject.SetActive(false);
             gemsLeft.gameObject.SetActive(false);
-            gameOver.text = "Player " + GameController.controller.winningPlayer + " wins!";
+            gameOver.text = GameController.controller.winningPlayer + " wins!";
             gameOver.gameObject.SetActive(true);
             playAgain.gameObject.SetActive(true);
             playAgainButton.gameObject.SetActive(true);

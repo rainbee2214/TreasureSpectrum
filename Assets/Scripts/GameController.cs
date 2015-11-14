@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public float timer;
 
-    float startingTime = 30f;
+    float startingTime = 60f;
 
     float newRoundDelay = 3f;
     bool inRound;
@@ -77,24 +77,32 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Player1TreasureCount >= startingTreasureCount / 2)
+        if (Player1BatteryLevel <= 0.001f)
         {
             player1RoundWin = true;
         }
-        else if (Player2TreasureCount >= startingTreasureCount / 2)
+        else if (Player2BatteryLevel <= 0.001f)
         {
             player2RoundWin = true;
+        }
+
+        Debug.Log(gameOver + " " + Input.GetButtonDown("EndGameReset"));
+        if (gameOver && (GamepadController.controller.GetButtonDown(XInputDotNetPure.PlayerIndex.One, GamePadButton.A) || GamepadController.controller.GetButtonDown(XInputDotNetPure.PlayerIndex.Two, GamePadButton.A)))
+        {
+            gameOver = false;
+            player1BatteryLevel = 1;
+            player2BatteryLevel = 1;
+            player1TreasureCount = 0;
+            player2TreasureCount = 0;
+            timer = startingTime;
+            UIController.controller.Reset();
+            Application.LoadLevel("Level");
         }
     }
     IEnumerator StartRounds()
     {
         currentLevelTreasureCount = startingTreasureCount;
-        //Start a new round 
-        //for (int roundNo = 1; roundNo <= startingNumberOfRounds; roundNo++)
-        //{
-        //Generate treasure and place it (using treasure controller)
-        //Place players in starting locations
-        //start timer
+
         timer = startingTime;
         player1RoundWin = false;
         player2RoundWin = false;
@@ -106,10 +114,12 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(newRoundDelay);
         Debug.Log("Round over!");
 
+        //Check for winner
+        if (player1RoundWin) winningPlayer = "Player 1";
+        else if (player2RoundWin) winningPlayer = "Player 2";
+        else winningPlayer = (Player1TreasureCount > Player2TreasureCount) ? "Player 1" : "Player 2";
         GameController.controller.gameOver = true;
-        //}
-        //-generate treasure, start time limit
-        //if treasure if collected enough or time is over ->start next round
+
         yield return null;
     }
 
