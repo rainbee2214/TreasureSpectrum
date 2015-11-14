@@ -726,7 +726,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22466060, guid: 9da7e67c04722e744aa58b46c63baec3, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 22466060, guid: 9da7e67c04722e744aa58b46c63baec3, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -970,7 +970,7 @@ Animator:
   m_GameObject: {fileID: 1089993126}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 87cd6c1242f414e4da27d8b88e0b11ca, type: 2}
+  m_Controller: {fileID: 9100000, guid: a5ec207fd49158c44bd773243f69bed2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1070,8 +1070,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 388358205
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72b70ff331cd9824389b64f732752a35, type: 3}
-  m_Color: {r: .438387394, g: .669117689, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6a1581ea4e165cf4ba43df9c708fb494, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1089993134
 Transform:
   m_ObjectHideFlags: 0
