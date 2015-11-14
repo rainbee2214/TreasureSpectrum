@@ -32,6 +32,8 @@ public class GamepadController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        p1rumbleEvents = new List<xRumble>();
+        p2rumbleEvents = new List<xRumble>();
     }
 
     // Poll the gamepad state, do rumbling

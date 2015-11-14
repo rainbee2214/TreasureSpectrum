@@ -23,12 +23,14 @@ public class TitleLoader : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Player1A") && !player1Ready)
+        //if (Input.GetButtonDown("Player1A") && !player1Ready)
+        if (GamepadController.controller.GetButtonDown(XInputDotNetPure.PlayerIndex.One, GamePadButton.A) && !player1Ready)
         {
             player1Ready = true;
             player1ReadyText.text = "Ready!";
         }
-        if (Input.GetButtonDown("Player2A") && !player2Ready)
+        //if (Input.GetButtonDown("Player2A") && !player2Ready)
+        if (GamepadController.controller.GetButtonDown(XInputDotNetPure.PlayerIndex.Two, GamePadButton.A) && !player2Ready)
         {
             player2Ready = true;
             player2ReadyText.text = "Ready!";
