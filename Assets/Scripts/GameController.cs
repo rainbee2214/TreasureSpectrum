@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public float timer;
 
-    float startingTime = 30f;
+    float startingTime = 60f;
 
     float newRoundDelay = 3f;
     bool inRound;
