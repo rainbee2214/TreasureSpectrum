@@ -12,3 +12,12 @@
     L_Bumper,
     R_Bumper
 }
+
+public enum FlashlightColor
+{
+    Red,
+    Blue,
+    Green,
+    Yellow,
+    White
+}
