@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMovement))]
 public class Player : MonoBehaviour
 {
@@ -32,6 +31,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        movement.Move(position);
+        if (position.x != 0 || position.y != 0) movement.Move(position);
+        else movement.Idle();
     }
 }

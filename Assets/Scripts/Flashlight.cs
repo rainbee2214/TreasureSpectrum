@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum FlashlightColor
-{
-    Red,
-    Blue,
-    Green,
-    Yellow,
-    White
-}
+
 public class Flashlight : MonoBehaviour
 {
     public static int numberOfColors = 5;
 
     public FlashlightColor currentColor;
     public SpriteRenderer flashlightRing;
+    public CircleCollider2D flashlightCollider;
 
     [HideInInspector]
     public XInputDotNetPure.PlayerIndex currentIndex;
 
+    float startingAlpha;
+
+    void Awake()
+    {
+        startingAlpha = flashlightRing.color.a;
+    }
     void Update()
     {
         if (GamepadController.controller.GetButtonDown(currentIndex, GamePadButton.R_Bumper) ||
@@ -52,16 +52,6 @@ public class Flashlight : MonoBehaviour
         }
     }
 
-    public void TurnFlashLightOn()
-    {
-
-    }
-
-    public void TurnFlashlightOff()
-    {
-
-    }
-
     public void GoToColor(FlashlightColor color)
     {
         //Set flashlight to color
@@ -71,13 +61,6 @@ public class Flashlight : MonoBehaviour
 
     public void CycleColors(bool cycleToRight)
     {
-        //Set flashlight to next color on list
-        //if (cycleToRight) currentColor = (FlashlightColor)(currentColor++);
-        //else currentColor = (FlashlightColor)(currentColor--);
-
-        ////if ((int)currentColor >= numberOfColors) currentColor = (FlashlightColor)0;
-        ////else if ((int)currentColor <= 0) currentColor = (FlashlightColor)(numberOfColors - 1);
-
         int cur = (int)currentColor;
         if (cycleToRight)
         {
@@ -100,14 +83,17 @@ public class Flashlight : MonoBehaviour
 
     Color GetColor(FlashlightColor color)
     {
+        Color c = Color.white;
         switch (color)
         {
             default:
-            case FlashlightColor.White: return Color.white;
-            case FlashlightColor.Red: return Color.red;
-            case FlashlightColor.Blue: return Color.blue;
-            case FlashlightColor.Green: return Color.green;
-            case FlashlightColor.Yellow: return Color.yellow;
+            case FlashlightColor.White: c = Color.white; break;
+            case FlashlightColor.Red: c = Color.red; break;
+            case FlashlightColor.Blue: c = Color.blue; break;
+            case FlashlightColor.Green: c = Color.green; break;
+            case FlashlightColor.Yellow: c = Color.yellow; break;
         }
+        c.a = startingAlpha;
+        return c;
     }
 }
